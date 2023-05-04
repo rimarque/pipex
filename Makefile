@@ -6,7 +6,7 @@
 #    By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 12:57:07 by rimarque          #+#    #+#              #
-#    Updated: 2023/05/02 12:57:10 by rimarque         ###   ########.fr        #
+#    Updated: 2023/05/04 11:27:07 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ all: $(NAME)
 
 $(LIBFT):
 	echo "compiling..."
-	$(MAKE) -C ./libftx
+	$(MAKE) --no-print-directory -C ./libftx
 	echo "LIBFT created"
 
 $(NAME): $(OBJ_MAND) $(LIBFT)
@@ -40,14 +40,14 @@ $(NAME): $(OBJ_MAND) $(LIBFT)
 #		echo "Program checker READY"
 
 clean:
-	$(MAKE) -C ./libftx
+	$(MAKE) --no-print-directory -C ./libftx
 #	rm -rf $(OBJ)
 	rm -rf $(OBJ_MAND)
 #	rm -rf $(OBJ_BONUS)
 	echo "Object files CLEAN"
 
 fclean: clean
-	$(MAKE) fclean -C ./libftx
+	$(MAKE) fclean --no-print-directory -C ./libftx
 	rm -rf $(NAME)
 	rm -rf checker
 	echo "All files CLEAN"
