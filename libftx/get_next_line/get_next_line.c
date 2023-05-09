@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
+/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 21:54:29 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/23 18:00:40 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/09 16:28:51 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	free_last_line(char	**str)
 	if (count_nl(*str) == 1)
 	{
 		if (str[0][ft_strclen(*str, '\0') - 1] == '\n')
-			ft_free(str);
+			ft_free_str(str);
 	}
 }
 
@@ -31,7 +31,7 @@ char	*move_to_read(char **to_read)
 	prev_line = ft_strclen(*to_read, '\n');
 	dst = ft_calloc((ft_strclen(*to_read, '\0') + 1) - prev_line, sizeof(char));
 	ft_strccpy(dst, *to_read + prev_line, '\0');
-	ft_free(to_read);
+	ft_free_str(to_read);
 	return (dst);
 }
 
@@ -67,7 +67,7 @@ char	*read_to_line(int fd, char **to_read, char *line)
 		}
 		bytes = read(fd, *to_read, BUFFER_SIZE);
 		if (bytes <= 0)
-			ft_free(to_read);
+			ft_free_str(to_read);
 		if (bytes < 0 && *line)
 			free(line);
 		if (bytes < 0 || (bytes == 0 && !*line))

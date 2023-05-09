@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 19:39:42 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/02 16:12:50 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/09 21:34:35 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ size_t	ft_stringcount(char const *s, char c)
 	count = 1;
 	while (*s)
 	{
-		if (!!ft_strchr(s, c))
+		if (ft_strchr(s, c))
 		{
 			count++;
 			s = ft_strchr(s, c);
 		}
 		s++;
 	}
+	printf("count: %zu\n", count);
 	return (count);
 }
 
@@ -50,7 +51,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (0);
-	split = malloc((ft_stringcount(s, c) + 1) * sizeof(char *));
+	split = ft_calloc((ft_stringcount(s, c) + 1), sizeof(char *));
 	if (!split)
 		return (0);
 	x = 0;
@@ -61,13 +62,14 @@ char	**ft_split(char const *s, char c)
 		len = ft_stringlen(s, c);
 		if (len != 0)
 		{
-			split[x] = (char *) malloc((len + 1) * sizeof(char));
+			printf("len: %zu\n", len);
+			split[x] = ft_calloc((len + 1), sizeof(char));
 			ft_strlcpy(split[x], ((char *)s), (len + 1));
 			s = s + len;
 			x++;
 		}
 	}
-	split[x] = NULL;
+	//split[x] = NULL;
 	return (split);
 }
 
@@ -78,7 +80,7 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 
 	c = ' ';
-	split = ft_split("      split       this for   me  !       ", c);
+	split = ft_split("split this for me !", c);
 
 	i = 0;
 	while (split[i] != 0)
@@ -86,5 +88,6 @@ char	**ft_split(char const *s, char c)
 		printf("%s\n", split[i]);
 		i++;
 	}
+	ft_free_array(&split);
 	return (0);
 }*/

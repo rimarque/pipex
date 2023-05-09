@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-void	ft_free(char **str)
+void	ft_free_str(char **str)
 {
 	if (*str == NULL)
 		return ;
@@ -27,7 +27,10 @@ void	ft_free_array(char	***array)
 	i = 0;
 	while(array[0][i])
 	{
+		printf("array: %s\n", array[0][i]);
 		free(array[0][i]);
-		array[0][i++] = NULL;
+		array[0][i] = NULL;
+		i++;
 	}
+	free(*array);
 }

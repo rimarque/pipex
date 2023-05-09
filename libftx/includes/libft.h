@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:48:02 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/02 16:40:19 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/09 16:26:15 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 char		*ft_itoa(int n);
 char		**ft_split(char const *s, char c);
-void		ft_free(char **str);
+void		ft_free_str(char **str);
 void		ft_free_array(char	***array);
 
 #endif
