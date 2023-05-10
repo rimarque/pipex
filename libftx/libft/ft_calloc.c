@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 21:07:47 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/09 21:07:23 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/10 21:35:36 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (!dst)
 		return (0);
 	ft_bzero(dst, nmemb * size);
-	printf("entra no ft_calloc\n");
+	//printf("entra no ft_calloc\n");
 	return (dst);
 }

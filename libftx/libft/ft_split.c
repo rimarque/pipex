@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 19:39:42 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/09 21:34:35 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/10 21:35:57 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	ft_stringcount(char const *s, char c)
 		}
 		s++;
 	}
-	printf("count: %zu\n", count);
+	//printf("count: %zu\n", count);
 	return (count);
 }
 
@@ -62,7 +62,7 @@ char	**ft_split(char const *s, char c)
 		len = ft_stringlen(s, c);
 		if (len != 0)
 		{
-			printf("len: %zu\n", len);
+			//printf("len: %zu\n", len);
 			split[x] = ft_calloc((len + 1), sizeof(char));
 			ft_strlcpy(split[x], ((char *)s), (len + 1));
 			s = s + len;
