@@ -23,7 +23,8 @@ void	ft_free_str(char **str)
 void	ft_free_array(char	***array)
 {
 	int	i;
-
+	if (*array == NULL)
+			return ;
 	i = 0;
 	while(array[0][i])
 	{
