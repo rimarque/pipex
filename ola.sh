@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "ola"
+grep 1
