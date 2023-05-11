@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:31:10 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/10 21:29:03 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/11 10:54:36 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,41 +37,45 @@ void	error_management(int result, char *str, int exit_code, int stdout_copy, cha
 	}
 }
 
-char	*find_pathname(char	*command, char	*str_path)
+char	*find_pathname(char	*command, char	*str_path, int *flag)
 {
+	char	*str;
 	char	**path;
 	char	*temp;
 	int		i;
 
-	command = ft_strjoin("/", command);
 	path = ft_split(str_path, ':');
 	i = 0;
-	while(path[i])
+	/*while(path[i])
 	{
 		//ft_printf("path0: %s\n", path[i]);
 		i++;
-	}
+	}*/
 	i = 0;
 	while(path[i])
 	{
 		//ft_printf("path0: %s\n", path[i]);
-		temp = ft_strjoin(path[i], command);
+		str = ft_strjoin("/", command);
+		temp = ft_strjoin(path[i], str);
+		ft_free_str(&str);
 		//ft_printf("temp: %s\n", temp);
 		if (access((const char *)temp, F_OK) == 0)
 		{
+			*flag = 1;
 			command = temp;
-			//ft_printf("command: %s\n", command);
+			//ft_printf("command1: %s\n", command);
 			//ft_free_str(&temp);
 			break;
 		}
-		//ft_free_str(&temp);
+		ft_free_str(&temp);
 		i++;
 	}
-	//ft_free_array(&path);
+	ft_free_array(&path);
+	//ft_printf("command: %s\n", command);
 	return(command);
 }
 
-char	*find_path(char	*command, char	**envp)
+char	*find_path(char	*command, char	**envp, int *flag)
 {
 	char	*path;
 	int	i;
@@ -90,7 +94,7 @@ char	*find_path(char	*command, char	**envp)
 	}
 	if (path)
 	{
-		command = find_pathname(command, path);
+		command = find_pathname(command, path, flag);
 		//ft_printf("path1: %s\n", command);
 	}
 	return(command);
@@ -102,8 +106,7 @@ char	*create_pathname(char *command, int *flag, char	**envp)
 		command = command + 2;
 	else if (ft_strncmp("/bin/", command, 5) && (ft_strncmp("bin/", command, 4)))
 	{
-		*flag = 1;
-		command = find_path(command, envp);
+		command = find_path(command, envp, flag);
 		//ft_printf("pathname: %s\n", command);
 	}
 	return (command);
