@@ -6,7 +6,7 @@
 #    By: rimarque <rimarque>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 12:57:07 by rimarque          #+#    #+#              #
-#    Updated: 2023/05/11 10:39:35 by rimarque         ###   ########.fr        #
+#    Updated: 2023/05/11 10:55:52 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFT = ./libftx/libft.a
 
 CC = cc
 
-#CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g
 
 #OBJ =
 
