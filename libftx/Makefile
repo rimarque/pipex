@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+         #
+#    By: rimarque <rimarque>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 14:39:30 by rimarque          #+#    #+#              #
-#    Updated: 2023/05/10 21:57:00 by rimarque         ###   ########.fr        #
+#    Updated: 2023/05/12 17:21:01 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ NAME = libft.a
 
 CC = cc
 
-CFLAGS  = -Wall -Wextra -Werror -g
+#CFLAGS  = -Wall -Wextra -Werror -g
 
 RM = rm -rf
 

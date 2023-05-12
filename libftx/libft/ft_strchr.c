@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 15:09:40 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/20 11:34:31 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:07:35 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ char	*ft_strchr(const char *s, int c)
 /*#include <stdio.h>
 int	main()
 {
-	printf("%s\n", ft_strchr("tripouille", 't' + 256));
+	printf("%s\n", ft_strchr("tripo'uille", 39));
 	return (0);
 }*/

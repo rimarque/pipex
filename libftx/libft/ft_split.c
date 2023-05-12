@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 19:39:42 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/10 21:35:57 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/12 18:18:33 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,11 @@ size_t	ft_stringlen(char const *s, char c)
 	return (len);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_makesplit(char	**split, char const *s, char c)
 {
-	char	**split;
+	size_t x;
 	size_t	len;
-	size_t	x;
 
-	if (!s)
-		return (0);
-	split = ft_calloc((ft_stringcount(s, c) + 1), sizeof(char *));
-	if (!split)
-		return (0);
 	x = 0;
 	while (*s)
 	{
@@ -69,19 +63,76 @@ char	**ft_split(char const *s, char c)
 			x++;
 		}
 	}
+	return(split);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**split;
+
+	if (!s)
+		return (0);
+	split = ft_calloc((ft_stringcount(s, c) + 1), sizeof(char *));
+	if (!split)
+		return (0);
+	split = ft_makesplit(split, s, c);
 	//split[x] = NULL;
 	return (split);
 }
 
-/*int	main()
+void	print_array(char	**array)
+{
+	int i = 0;
+	while (array[i] != 0)
+	{
+		printf("%s\n", array[i]);
+		i++;
+	}
+	ft_free_array(&array);
+}
+
+char	**ft_quotes(char const *s, char c)
+{
+	char	*temp;
+	char	*str_in_quotes;
+	char	**split1;
+	char	**split2;
+	char	**result;
+
+	temp = ft_strchr(s, 39);
+	char	*temp2 = ft_strchr(temp + 1, 39);
+	if (temp2)
+	{
+		//printf("%c\n", *(temp - 1));
+		if (temp && *(temp - 1) == c && (*(temp2 + 1) == c || *(temp2 + 1) == '\0'))
+		{
+			str_in_quotes = ft_substr(temp, 1, ft_stringlen(temp + 1, 39));
+			printf("str in quotes:%s\n", str_in_quotes);
+			char	*str1 = ft_substr(s, 0, ft_stringlen(s, 39));
+			split1 = ft_split(str1, c);
+			//print_array(split1);
+			printf("str 1:%s\n", str1);
+			char	*temp2 = ft_strchr(temp + 1, 39);
+			char	*str2 = ft_substr(temp2, 1, ft_stringlen(temp + 1, '\0'));
+			split2 = ft_split(str2, c);
+			printf("str 2:%s\n", str2);
+			//print_array(split2);
+		}
+	}
+	else
+		result = ft_split(s, c);
+	return(result);
+}
+
+int	main()
 {
 	char	**split;
 	char	c;
 	size_t	i;
 
 	c = ' ';
-	split = ft_split("split this for me !", c);
-
+	split = ft_quotes("awk gsja jhsdkj jh '{count++} END {print count}", c);
+	//split =
 	i = 0;
 	while (split[i] != 0)
 	{
@@ -90,4 +141,4 @@ char	**ft_split(char const *s, char c)
 	}
 	ft_free_array(&split);
 	return (0);
-}*/
+}
