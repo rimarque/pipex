@@ -6,7 +6,7 @@
 #    By: rimarque <rimarque>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 12:57:07 by rimarque          #+#    #+#              #
-#    Updated: 2023/05/11 10:55:52 by rimarque         ###   ########.fr        #
+#    Updated: 2023/05/12 11:34:54 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 #OBJ =
 
-OBJ_MAND = src_mandatory/pipex.o
+OBJ_MAND = src_mandatory/pipex.o \
+			src_mandatory/pipex_aux.o
 
 #OBJ_BONUS =
 
