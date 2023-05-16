@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:31:10 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/12 16:25:39 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/15 17:04:32 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ void	exec_cmd(int	stdout_copy, char	*str_cmd, char	**envp)
 	int		flag;
 
 	flag = 0;
-	cmd = ft_split(str_cmd, ' ');
-	//(dup2(stdout_copy, STDOUT_FILENO);
+	//dup2(stdout_copy, STDOUT_FILENO);
+	cmd = ft_quotes(str_cmd, ' ');
+	//print_array(cmd);
+	//ft_printf("Oi\n");
 	pathname = ft_pathname(cmd[0], &flag, envp, stdout_copy, cmd);
 	//ft_printf("pathname: %s\n", pathname);
 	if (!strncmp("./", cmd[0], 2))
@@ -85,7 +87,7 @@ int	ft_pipex(int	*fd, char	**argv, char	**envp)
 	return(pid2);
 }
 
-int	main(int argc, char **argv, char **envp)
+int	main(int argc, char **argv, char **envp)  //VER SE FUNCIONA COM $
 {
 	int	fd[2];
 	int	wstatus;

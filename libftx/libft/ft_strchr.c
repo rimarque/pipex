@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 15:09:40 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/12 17:07:35 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:15:13 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i] != (unsigned char)c && s[i] != '\0')
 		i++;
 	if (i == len && (unsigned char)c != 0)
+	{
+		//ft_printf("entra aqui strchrnull\n");
 		return (NULL);
+	}
 	return ((char *)s + i);
 }
 

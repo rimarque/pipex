@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_len.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:45:24 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/26 12:51:24 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/15 14:43:26 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,20 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-/*#include <stdio.h>
-int main()
+size_t	ft_arrlen(char **arr)
+{
+	size_t	i;
+
+	i = 0;
+	while (arr[i] != NULL)
+	{
+		i++;
+	}
+	return (i);
+}
+
+#include <stdio.h>
+/*int main()
 {
     const char *str;
 

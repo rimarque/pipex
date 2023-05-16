@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:48:02 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/09 16:26:15 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/15 15:53:54 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <limits.h>
+#include "get_next_line.h"
+#include "ft_printf.h"
 
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
@@ -23,6 +25,7 @@ int			ft_isalnum(int c);
 int			ft_isascii(int c);
 int			ft_isprint(int c);
 size_t		ft_strlen(const char *str);
+size_t		ft_arrlen(char **arr);
 void		*ft_memset(void *str, int c, size_t n);
 void		ft_bzero(void *str, size_t n);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
@@ -30,6 +33,7 @@ void		*ft_memmove(void *dest, const void *src, size_t n);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
 void		*ft_memmove(void *dest, const void *src, size_t n);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
+size_t		ft_arrlcpy(char **dst, char **src, size_t size);
 size_t		ft_strlcat(char *dst, const char *src, size_t size);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
@@ -53,7 +57,9 @@ void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 char		*ft_itoa(int n);
 char		**ft_split(char const *s, char c);
+char		**ft_quotes(char const *s, char c);
 void		ft_free_str(char **str);
 void		ft_free_array(char	***array);
+void		print_array(char	**array);
 
 #endif

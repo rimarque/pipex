@@ -6,7 +6,7 @@
 #    By: rimarque <rimarque>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 14:39:30 by rimarque          #+#    #+#              #
-#    Updated: 2023/05/12 17:21:01 by rimarque         ###   ########.fr        #
+#    Updated: 2023/05/15 16:57:15 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC =  libft/ft_bzero.c \
            libft/ft_memset.c \
            libft/ft_memcpy.c \
            libft/ft_memmove.c \
-           libft/ft_strlcpy.c \
+           libft/ft_cpy.c \
            libft/ft_strlcat.c \
            libft/ft_toupper.c \
            libft/ft_tolower.c \
@@ -42,20 +42,20 @@ SRC =  libft/ft_bzero.c \
            libft/ft_putendl_fd.c \
            libft/ft_putnbr_fd.c \
            libft/ft_itoa.c \
-           libft/ft_split.c \
            libft/ft_free.c \
-	   libft/ft_strlen.c \
+	   libft/ft_len.c \
 	   printf/ft_print_cs.c \
 	   printf/ft_print_iduxXp.c \
 	   printf/ft_printf.c \
        get_next_line/get_next_line.c \
-       get_next_line/get_next_line_utils.c
+       get_next_line/get_next_line_utils.c \
+       libft/ft_split.c \
 
 NAME = libft.a
 
 CC = cc
 
-#CFLAGS  = -Wall -Wextra -Werror -g
+CFLAGS  = -Wall -Wextra -Werror -g
 
 RM = rm -rf
 
