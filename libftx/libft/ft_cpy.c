@@ -41,7 +41,7 @@ size_t	ft_arrlcpy(char **dst, char **src, size_t size)
 			dst[i] = src[i];
 			i++;
 		}
-		dst[i] = '\0';
+		dst[i] = NULL;
 	}
 	return (ft_arrlen(src));
 }

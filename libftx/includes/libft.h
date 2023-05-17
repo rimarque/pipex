@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
+/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:48:02 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/15 15:53:54 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:26:42 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <limits.h>
-#include "get_next_line.h"
-#include "ft_printf.h"
+# include "get_next_line.h"
+# include "ft_printf.h"
 
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
@@ -48,6 +48,7 @@ void		*ft_calloc(size_t nmemb, size_t size);
 char		*ft_strdup(const char *s);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
+char		**ft_arrjoin(char	**arr1, char	*str, char	**arr2);
 char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
@@ -61,5 +62,7 @@ char		**ft_quotes(char const *s, char c);
 void		ft_free_str(char **str);
 void		ft_free_array(char	***array);
 void		print_array(char	**array);
+size_t		ft_chrcount(char const *s, char c);
+size_t		ft_strclen(char const *s, char c);
 
 #endif

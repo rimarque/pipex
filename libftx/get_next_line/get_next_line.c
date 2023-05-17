@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 21:54:29 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/09 16:28:51 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:44:22 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	free_last_line(char	**str)
 		return ;
 	if (count_nl(*str) == 1)
 	{
-		if (str[0][ft_strclen(*str, '\0') - 1] == '\n')
+		if (str[0][gnl_strclen(*str, '\0') - 1] == '\n')
 			ft_free_str(str);
 	}
 }
@@ -28,8 +28,9 @@ char	*move_to_read(char **to_read)
 	size_t	prev_line;
 	char	*dst;
 
-	prev_line = ft_strclen(*to_read, '\n');
-	dst = ft_calloc((ft_strclen(*to_read, '\0') + 1) - prev_line, sizeof(char));
+	prev_line = gnl_strclen(*to_read, '\n');
+	dst = ft_calloc((gnl_strclen(*to_read, '\0') + 1) - prev_line,
+			sizeof(char));
 	ft_strccpy(dst, *to_read + prev_line, '\0');
 	ft_free_str(to_read);
 	return (dst);
@@ -39,7 +40,7 @@ char	*cpy_to_line(char *line, char **to_read)
 {
 	size_t	len;
 
-	len = ft_strclen(*to_read, '\n');
+	len = gnl_strclen(*to_read, '\n');
 	if (len > 0)
 	{
 		line = ft_calloc(len + 1, sizeof(char));
@@ -73,7 +74,7 @@ char	*read_to_line(int fd, char **to_read, char *line)
 		if (bytes < 0 || (bytes == 0 && !*line))
 			return (NULL);
 		if (bytes > 0)
-			line = gft_strjoin(line, to_read);
+			line = gnl_strjoin(line, to_read);
 	}
 	free_last_line(to_read);
 	return (line);

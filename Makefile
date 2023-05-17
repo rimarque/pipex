@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rimarque <rimarque>                        +#+  +:+       +#+         #
+#    By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 12:57:07 by rimarque          #+#    #+#              #
-#    Updated: 2023/05/12 11:34:54 by rimarque         ###   ########.fr        #
+#    Updated: 2023/05/16 17:56:39 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ CFLAGS = -Wall -Wextra -Werror -g
 #OBJ =
 
 OBJ_MAND = src_mandatory/pipex.o \
-			src_mandatory/pipex_aux.o
+			src_mandatory/pipex_aux.o \
+			src_mandatory/quotes.o
 
 #OBJ_BONUS =
 

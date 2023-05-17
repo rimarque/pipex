@@ -12,29 +12,34 @@
 
 #include "../includes/pipex.h"
 
-void	error_management(int result, char *str, int exit_code, int stdout_copy, char	**command, char	*pathname, int flag)
+void	free_and_exit(int exit_code, char	**command, char	*pathname, int flag)
 {
-	if (result == -1)
+	if (flag == 1)
+		ft_free_str(&pathname);
+	ft_free_array(&command);
+	exit(exit_code);
+}
+
+void	error_management(char *str, int stdout_copy, int exit_code)
+{
+	if (!str)
 	{
-			if (!str)
-				ft_printf("pipex: %s\n", strerror(errno));
-			else if (stdout_copy == 0)
-				ft_printf("pipex: %s: %s\n", strerror(errno), str);
-			else
-			{
-				dup2(stdout_copy, STDOUT_FILENO);
-				if (ft_strncmp("/bin/", str, 5) && ft_strncmp("bin/", str, 4) && ft_strncmp("./", str, 2))
-					ft_printf("pipex: Command not found: %s\n", str);
-				else if (!ft_strncmp(".sh", str + ft_strlen(str) - 3, 3))
-					ft_printf("pipex: Command not found: %s\n", str);
-				else
-					ft_printf ("pipex: %s: %s\n", strerror(errno), str);
-			}
-			if (flag == 1)
-				ft_free_str(&pathname);
-			ft_free_array(&command);
-			exit(exit_code);
+		ft_printf("pipex: %s: %s\n", strerror(errno));
+		exit(exit_code);
 	}
+	if (stdout_copy == 0)
+	{
+		ft_printf("pipex: %s: %s\n", strerror(errno), str);
+		exit(exit_code);
+	}
+	dup2(stdout_copy, STDOUT_FILENO);
+	if (ft_strncmp("/bin/", str, 5) && ft_strncmp("bin/", str, 4)
+		&& ft_strncmp("./", str, 2))
+		ft_printf("pipex: Command not found: %s\n", str);
+	else if (!ft_strncmp(".sh", str + ft_strlen(str) - 3, 3))
+		ft_printf("pipex: Command not found: %s\n", str);
+	else
+		ft_printf ("pipex: %s: %s\n", strerror(errno), str);
 }
 
 char	*create_pathname(char	*str, char	*str_path, int *flag)
@@ -46,7 +51,7 @@ char	*create_pathname(char	*str, char	*str_path, int *flag)
 
 	path = ft_split(str_path, ':');
 	i = 0;
-	while(path[i])
+	while (path[i])
 	{
 		slash_cmd = ft_strjoin("/", str);
 		temp = ft_strjoin(path[i], slash_cmd);
@@ -55,13 +60,13 @@ char	*create_pathname(char	*str, char	*str_path, int *flag)
 		{
 			*flag = 1;
 			str = temp;
-			break;
+			break ;
 		}
 		ft_free_str(&temp);
 		i++;
 	}
 	ft_free_array(&path);
-	return(str);
+	return (str);
 }
 
 char	*find_path(char	*str, char	**envp, int *flag)
@@ -71,39 +76,38 @@ char	*find_path(char	*str, char	**envp, int *flag)
 
 	path = NULL;
 	i = 0;
-	while(envp[i])
+	while (envp[i])
 	{
-		if(!ft_strncmp("PATH", envp[i], 4))
+		if (!ft_strncmp("PATH", envp[i], 4))
 			path = envp[i] + 5;
 		i++;
 	}
 	if (path)
 		str = create_pathname(str, path, flag);
-	return(str);
+	return (str);
 }
 
-char	*ft_pathname(char *str, int *flag, char	**envp, int stdout_copy, char **full_cmd)
+char	*ft_pathname(int *flag, char **envp, int stdout_copy, char **cmd)
 {
-	int	len;
+	int		len;
+	char	*str;
 
-	len = ft_strlen(str);
+	str = "\0";
+	len = ft_strlen(cmd[0]);
 	if (len > 3)
 	{
-		if (!ft_strncmp(".sh", str + ft_strlen(str) - 3, 3))
+		if (!ft_strncmp(".sh", cmd[0] + ft_strlen(str) - 3, 3))
 		{
-			//ft_printf("entra aqui");
-			if (!ft_strncmp("./", str, 2))
+			if (!ft_strncmp("./", cmd[0], 2))
 			{
-				str = str + 2;
+				str = cmd[0] + 2;
 				return (str);
 			}
-			error_management(-1, str, 127, stdout_copy, full_cmd, NULL, 0);
+			error_management(cmd[0], stdout_copy, 0);
+			free_and_exit(127, cmd, NULL, 0);
 		}
 	}
-	if (ft_strncmp("/bin/", str, 5) && (ft_strncmp("bin/", str, 4)))
-	{
-		//ft_printf("entra aqui");
-		str = find_path(str, envp, flag);
-	}
+	if (ft_strncmp("/bin/", cmd[0], 5) && (ft_strncmp("bin/", cmd[0], 4)))
+		str = find_path(cmd[0], envp, flag);
 	return (str);
 }

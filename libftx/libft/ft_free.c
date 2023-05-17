@@ -23,12 +23,12 @@ void	ft_free_str(char **str)
 void	ft_free_array(char	***array)
 {
 	int	i;
+
 	if (*array == NULL)
-			return ;
+		return ;
 	i = 0;
-	while(array[0][i])
+	while (array[0][i])
 	{
-		//printf("array: %s\n", array[0][i]);
 		free(array[0][i]);
 		array[0][i] = NULL;
 		i++;

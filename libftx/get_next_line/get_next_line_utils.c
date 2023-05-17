@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
+/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:17:42 by rimarque          #+#    #+#             */
-/*   Updated: 2023/04/23 18:00:34 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:09:01 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	count_nl(char *str)
 	return (count);
 }
 
-size_t	ft_strclen(const char *str, char c)
+size_t	gnl_strclen(const char *str, char c)
 {
 	size_t	i;
 
@@ -60,15 +60,15 @@ void	ft_strccpy(char *dst, char *src, char c)
 	dst[i] = '\0';
 }
 
-char	*gft_strjoin(char *line, char **to_read)
+char	*gnl_strjoin(char *line, char **to_read)
 {
 	char	*dst;
 	size_t	len_line;
 	size_t	len_read;
 	size_t	len_dst;
 
-	len_line = ft_strclen(line, '\n');
-	len_read = ft_strclen(*to_read, '\n');
+	len_line = gnl_strclen(line, '\n');
+	len_read = gnl_strclen(*to_read, '\n');
 	len_dst = len_line + len_read;
 	dst = ft_calloc(len_dst + 1, sizeof(char));
 	ft_strccpy(dst, line, '\n');
