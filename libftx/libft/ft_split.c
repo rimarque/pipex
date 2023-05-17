@@ -6,11 +6,35 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 19:39:42 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/16 19:41:42 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/17 19:10:41 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
+
+size_t	ft_strcount(char const *s, char c)
+{
+	size_t	count;
+
+	if (!*s)
+		return (0);
+	while (*s == c && *s)
+				s++;
+	count = 0;
+	while (*s)
+	{
+		if (ft_strchr(s, c))
+		{
+			count++;
+			s = ft_strchr(s, c);
+			while (*s == c && *s)
+				s++;
+		}
+		else
+			s++;
+	}
+	return (count + 1);
+}
 
 char	**ft_makesplit(char	**split, char const *s, char c)
 {
@@ -40,7 +64,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (0);
-	split = ft_calloc((ft_chrcount(s, c) + 2), sizeof(char *));
+	split = ft_calloc((ft_strcount(s, c) + 1), sizeof(char *));
 	if (!split)
 		return (0);
 	split = ft_makesplit(split, s, c);

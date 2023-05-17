@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:48:02 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/16 19:26:42 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/17 18:35:59 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int			ft_isalnum(int c);
 int			ft_isascii(int c);
 int			ft_isprint(int c);
 size_t		ft_strlen(const char *str);
+size_t		ft_strclen(char const *s, char c);
 size_t		ft_arrlen(char **arr);
 void		*ft_memset(void *str, int c, size_t n);
 void		ft_bzero(void *str, size_t n);
@@ -62,7 +63,5 @@ char		**ft_quotes(char const *s, char c);
 void		ft_free_str(char **str);
 void		ft_free_array(char	***array);
 void		print_array(char	**array);
-size_t		ft_chrcount(char const *s, char c);
-size_t		ft_strclen(char const *s, char c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:45:24 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/16 19:42:43 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/17 18:35:23 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,19 @@ size_t	ft_strlen(const char *str)
 		i++;
 	}
 	return (i);
+}
+
+size_t	ft_strclen(char const *s, char c)
+{
+	size_t	len;
+
+	len = 0;
+	while (*s != c && *s)
+	{
+		len++;
+		s++;
+	}
+	return (len);
 }
 
 size_t	ft_arrlen(char **arr)

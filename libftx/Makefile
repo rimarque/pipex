@@ -6,7 +6,7 @@
 #    By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 14:39:30 by rimarque          #+#    #+#              #
-#    Updated: 2023/05/16 18:10:21 by rimarque         ###   ########.fr        #
+#    Updated: 2023/05/17 18:36:15 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,6 @@ SRC =  libft/ft_bzero.c \
        get_next_line/get_next_line.c \
        get_next_line/get_next_line_utils.c \
        libft/ft_split.c \
-       libft/ft_chr.c
 
 NAME = libft.a
 

@@ -96,7 +96,7 @@ char	*ft_pathname(int *flag, char **envp, int stdout_copy, char **cmd)
 	len = ft_strlen(cmd[0]);
 	if (len > 3)
 	{
-		if (!ft_strncmp(".sh", cmd[0] + ft_strlen(str) - 3, 3))
+		if (!ft_strncmp(".sh", cmd[0] + ft_strlen(cmd[0]) - 3, 3))
 		{
 			if (!ft_strncmp("./", cmd[0], 2))
 			{

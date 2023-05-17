@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:31:10 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/16 20:04:01 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/17 19:11:16 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ void	exec_cmd(int stdout_copy, char *str_cmd, char **envp)
 	else
 		error = execve((const char *)pathname, (char **const)cmd, envp);
 	if (error == -1)
-	{
 		error_management(cmd[0], stdout_copy, 0);
-		free_and_exit(127, cmd, pathname, flag);
-	}
+	free_and_exit(127, cmd, pathname, flag);
 }
 
 void	write_to_pipe(int *fd, char **argv, char **envp)

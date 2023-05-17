@@ -1,0 +1,24 @@
+VALGRIND
+simples:
+	valgrind ./pipex in "grep hello" cat out - check
+./*.sh:
+	valgrind ./pipex in ./s.sh "wc -c" out - check
+	valgrind ./pipex in cat ./s.sh out - check
+	(sript non existente):
+		valgrind ./pipex in cat ./kjhdkajh.sh out - check
+		valgrind ./pipex in ./hfsk.sh cat out -check
+single quotes:
+	valgrind ./pipex in "grep hello" "awk '{count++} END {print count}'" out - check
+error:
+	no permissions - check
+no folder:
+	valgrind ./pipex no/in "grep hello" "awk '{count++} END {print count}'" out - check
+	valgrind ./pipex in grep\ hello awk\ '{count++}\ END\ {print\ count}' no/out - check
+invalid option:
+	valgrind ./pipex in "ls -j" "awk '{count++} END {print count}'" out - check
+	valgrind ./pipex in "ls -l" "wc -j" out - check
+erro duplo:
+	valgrind ./pipex in "ls -l" "wc -j" no/out - check
+	valgrind ./pipex in "ls -j" "wc -j" no/out - check
+	valgrind ./pipex no/in "ls -j" "wc -j" no/out - check
+norminette - check
