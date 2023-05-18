@@ -22,3 +22,4 @@ erro duplo:
 	valgrind ./pipex in "ls -j" "wc -j" no/out - check
 	valgrind ./pipex no/in "ls -j" "wc -j" no/out - check
 norminette - check
+exit code -
