@@ -6,7 +6,7 @@
 #    By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/24 14:39:30 by rimarque          #+#    #+#              #
-#    Updated: 2023/05/17 18:36:15 by rimarque         ###   ########.fr        #
+#    Updated: 2023/05/22 15:41:25 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC =  libft/ft_bzero.c \
            libft/ft_tolower.c \
            libft/ft_strchr.c \
            libft/ft_strrchr.c \
-           libft/ft_strncmp.c \
+           libft/ft_strcmp.c \
            libft/ft_memchr.c \
            libft/ft_memcmp.c \
            libft/ft_strnstr.c \

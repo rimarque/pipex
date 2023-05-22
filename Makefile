@@ -6,7 +6,7 @@
 #    By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 12:57:07 by rimarque          #+#    #+#              #
-#    Updated: 2023/05/16 17:56:39 by rimarque         ###   ########.fr        #
+#    Updated: 2023/05/22 20:13:02 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,15 @@ LIBFT = ./libftx/libft.a
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+#CFLAGS = -Wall -Wextra -Werror -g
 
-#OBJ =
+OBJ = src/pipex_aux.o \
+		src/quotes.o
 
 OBJ_MAND = src_mandatory/pipex.o \
-			src_mandatory/pipex_aux.o \
-			src_mandatory/quotes.o
 
-#OBJ_BONUS =
+OBJ_BONUS = src_bonus/main.o \
+				src_bonus/pipex_bonus.o
 
 all: $(NAME)
 
@@ -33,19 +33,19 @@ $(LIBFT):
 	$(MAKE) --no-print-directory -C ./libftx
 	echo "LIBFT created"
 
-$(NAME): $(OBJ_MAND) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ_MAND) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJ_MAND) $(OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJ_MAND) $(OBJ) $(LIBFT) -o $(NAME)
 	echo "Program READY"
 
-#bonus: $(OBJ_BONUS) $(OBJ) $(LIBFT)
-#		$(CC) $(CFLAGS) $(OBJ_BONUS) $(OBJ) $(LIBFT) -o checker
-#		echo "Program checker READY"
+bonus: $(OBJ_BONUS) $(OBJ) $(LIBFT)
+		$(CC) $(CFLAGS) $(OBJ_BONUS) $(OBJ) $(LIBFT) -o bonus
+		echo "Bonus READY"
 
 clean:
 	$(MAKE) --no-print-directory -C ./libftx
-#	rm -rf $(OBJ)
+	rm -rf $(OBJ)
 	rm -rf $(OBJ_MAND)
-#	rm -rf $(OBJ_BONUS)
+	rm -rf $(OBJ_BONUS)
 	echo "Object files CLEAN"
 
 fclean: clean

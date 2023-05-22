@@ -23,3 +23,6 @@ erro duplo:
 	valgrind ./pipex no/in "ls -j" "wc -j" no/out - check
 norminette - check
 exit code -
+
+BONUS + valgrind
+./bonus in cat "grep hello" "awk '{print $2}'" "wc -c" "cut -c2" out; 2
