@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:56:59 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/22 21:18:59 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/23 12:21:35 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ char	**ft_quotes(char const *s, char c);
 void	exec_cmd(int stdout_copy, char *str_cmd, char **envp);
 void	write_to_file(int *pipe_fd, char *cmd, char *file, char **envp);
 int		last_fork(int	*fd, int argc, char	**argv, char	**envp);
-//void	read_from_file(int *pipe_fd, char *file, char *cmd, char **envp);
-void	read_from_file(int *pipe_fd, char *file, char *cmd, char **envp, int *fd_file);
+void	read_from_file(int *pipe_fd, char *file, char *cmd, char **envp);
+//void	read_from_file(int *pipe_fd, char *file, char *cmd, char **envp, int *fd_file);
 int		first_fork(int	*fd, char	**argv, char	**envp, int *index);
 int	redirect(int *fd, char *lim, char *cmd, char **envp);
 

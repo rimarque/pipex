@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 12:47:20 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/22 21:23:41 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:59:41 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,16 @@ int	mltp_pipes(int	*fd, int argc, char	**argv, char	**envp, int index)
 {
 	int	pid;
 	int	next_fd[2];
-	int i;
+	//int i;
 
-	i = index;
-	while(index <= argc - i) //penultimo cmd
+	//argc = 7;
+	//i = index = 4;
+	//argc - 3 = 4;
+	ft_printf("entra aqui mltp\n");
+	//i = index;
+	while(index <= argc - 3) //penultimo cmd
 	{
+		ft_printf("entra aqui loop\n");
 		close(fd[1]);
 		if (pipe(next_fd) == -1)
 			error_management(NULL, 0, errno);
@@ -69,11 +74,14 @@ int	ft_bonus_pipex(int argc, char	**argv, char	**envp)
 	waitpid(pid_first, NULL, 0);
 	if (argc - (index + 1) == 1) // n == numero de pipes
 	{
-		ft_printf("entra aqui");
+		ft_printf("entra aqui 4\n");
 		pid_last = last_fork(fd, argc, argv, envp); //read from last pipe; exec last cmd - escreves para o ficheiro o output do ultimo comando
 	}
 	else
+	{
+		ft_printf("entra aqui else\n");
 		pid_last = mltp_pipes(fd, argc, argv, envp, index);
+	}
 	close(fd[0]);
 	close(fd[1]);
 	return (pid_last);
