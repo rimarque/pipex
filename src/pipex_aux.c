@@ -33,8 +33,7 @@ void	error_management(char *str, int stdout_copy, int exit_code)
 		exit(exit_code);
 	}
 	dup2(stdout_copy, STDOUT_FILENO);
-	if (ft_strncmp("/bin/", str, 5) && ft_strncmp("bin/", str, 4)
-		&& ft_strncmp("./", str, 2))
+	if (ft_strncmp("/", str, 1))
 		ft_printf("pipex: Command not found: %s\n", str);
 	else if (!ft_strncmp(".sh", str + ft_strlen(str) - 3, 3))
 		ft_printf("pipex: Command not found: %s\n", str);
@@ -107,7 +106,9 @@ char	*ft_pathname(int *flag, char **envp, int stdout_copy, char **cmd)
 			free_and_exit(127, cmd, NULL, 0);
 		}
 	}
-	if (ft_strncmp("/bin/", cmd[0], 5) && (ft_strncmp("bin/", cmd[0], 4)))
+	if (access((const char *)cmd[0], F_OK))
 		str = find_path(cmd[0], envp, flag);
+	else
+		str = cmd[0];
 	return (str);
 }

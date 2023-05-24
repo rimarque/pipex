@@ -26,3 +26,18 @@ exit code -
 
 BONUS + valgrind
 ./bonus in cat "grep hello" "awk '{print $2}'" "wc -c" "cut -c2" out; 2
+valgrind ./bonus here_doc END cat "grep hello" "grep rita" "grep salt" "grep 1" "grep pipex" out
+
+HERE_DOC
+valgrind ./bonus here_doc END cat "gjsgdjka" "grep rita" "grep salt" "grep 1" "grep pipex" out; pipex: Command not found: gjsgdjka
+valgrind ./bonus here_doc END JGG "gjsgdjka" "grep rita" "grep salt" "grep 1" "grep pipex" out; pipex: Command not found: JGG
+valgrind ./bonus here_doc END cat "grep hello" "dhksajhd" "grep salt" "grep 1" "grep pipex" out; pipex: Command not found: dhksajhd
+valgrind ./bonus here_doc END cat "grep hello" "grep rita" "kjdhaksjdh" "grep 1" "grep pipex" out
+valgrind ./bonus here_doc END "wc -k" "grep hello" "grep rita" "grep salt" "grep 1" "klfksjdfhksj" out
+fiz igual sem here_doc
+
+outros caminhos, dev random ->resolvido
+
+Passar norminette
+Passar pipex tester
+

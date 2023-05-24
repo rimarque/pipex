@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rimarque <rimarque>                        +#+  +:+       +#+         #
+#    By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 12:57:07 by rimarque          #+#    #+#              #
-#    Updated: 2023/05/23 12:20:18 by rimarque         ###   ########.fr        #
+#    Updated: 2023/05/24 19:25:36 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,13 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 
 OBJ = src/pipex_aux.o \
-		src/quotes.o
+		src/pipex_exec_cmd.o
 
 OBJ_MAND = src_mandatory/pipex.o \
 
-OBJ_BONUS = src_bonus/main.o \
-				src_bonus/pipex_bonus.o
+OBJ_BONUS = src_bonus/pipex_bonus.o \
+				src_bonus/pipex_first_fork.o \
+				src_bonus/pipex_last_fork.o
 
 all: $(NAME)
 
