@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 17:05:15 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/24 17:08:33 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:49:34 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	write_to_file(int *pipe_fd, char *cmd, char *file, char **envp)
 int	last_fork(int	*fd, int argc, char	**argv, char	**envp)
 {
 	int	pid;
+
 	pid = fork();
 	if (pid == -1)
 		error_management(NULL, 0, errno);

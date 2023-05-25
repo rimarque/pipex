@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:31:10 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/24 22:05:43 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:58:50 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	pipex_first_fork(int	*pipe_fd, char	**argv, char	**envp)
 		error_management(NULL, 0, errno);
 	if (pid == 0)
 		read_from_file(in_fd, pipe_fd, argv[2], envp);
-	return(pid);
+	return (pid);
 }
 
 void	read_from_pipe(int *fd, char **argv, char **envp)
@@ -90,6 +90,5 @@ int	main(int argc, char **argv, char **envp)
 	close(fd[0]);
 	close(fd[1]);
 	waitpid(pid2, &wstatus, 0);
-	//ft_printf("exit status: %d\n", WEXITSTATUS(wstatus));
 	return (WEXITSTATUS(wstatus));
 }

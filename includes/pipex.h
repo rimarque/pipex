@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:56:59 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/24 19:23:12 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:43:54 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_pathname(int *flag, char	**envp,
 void	exec_cmd(int stdout_copy, char *str_cmd, char **envp);
 
 //pipex_first_fork
-int		first_fork(int	*fd, int argc, char	**argv, char	**envp, int *index);
+int		first_fork(int	*fd, int argc, char	**argv, char	**envp);
 
 //pipex_last_fork
 int		last_fork(int	*fd, int argc, char	**argv, char	**envp);

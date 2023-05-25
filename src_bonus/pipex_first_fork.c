@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 13:08:56 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/24 20:16:22 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:50:25 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ char	*read_stdin(char *lim, int n)
 	str = "\0";
 	buff = "\0";
 	temp = n;
-	while(1)
+	while (1)
 	{
 		n = temp;
-		while(n--)
+		while (n--)
 			ft_printf("pipe ");
 		ft_printf("heredoc> ");
 		str = get_next_line(STDIN_FILENO);
@@ -50,7 +50,7 @@ int	redirect(char *lim, int n)
 	write(heredoc_fd[1], buff, strlen(buff));
 	close(heredoc_fd[1]);
 	ft_free_str(&buff);
-	return(heredoc_fd[0]);
+	return (heredoc_fd[0]);
 }
 
 int	open_file(char *file)
@@ -60,7 +60,7 @@ int	open_file(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		error_management(file, 0, 0);
-	return(fd);
+	return (fd);
 }
 
 void	write_to_pipe(int in_fd, int *pipe_fd, char *cmd, char **envp)
@@ -76,7 +76,7 @@ void	write_to_pipe(int in_fd, int *pipe_fd, char *cmd, char **envp)
 	exec_cmd(stdout_copy, cmd, envp);
 }
 
-int	first_fork(int	*pipe_fd, int argc, char	**argv, char	**envp, int *index)
+int	first_fork(int	*pipe_fd, int argc, char	**argv, char	**envp)
 {
 	int		pid;
 	char	*cmd;
@@ -84,13 +84,11 @@ int	first_fork(int	*pipe_fd, int argc, char	**argv, char	**envp, int *index)
 
 	if (!strcmp(argv[1], "here_doc"))
 	{
-		*index = 4;
 		cmd = argv[3];
 		in_fd = redirect(argv[2], argc - 5);
 	}
 	else
 	{
-		*index = 3;
 		cmd = argv[2];
 		in_fd = open_file(argv[1]);
 	}
@@ -99,5 +97,5 @@ int	first_fork(int	*pipe_fd, int argc, char	**argv, char	**envp, int *index)
 		error_management(NULL, 0, errno);
 	if (pid == 0)
 		write_to_pipe(in_fd, pipe_fd, cmd, envp);
-	return(pid);
+	return (pid);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rimarque <rimarque>                        +#+  +:+       +#+        */
+/*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 18:52:32 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/23 16:39:51 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:55:26 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ char	*ft_strjoinfree(char const *s1, char const *s2)
 		return (0);
 	ft_strlcpy(new_s, s1, (s1_len + 1));
 	ft_strlcpy((new_s + s1_len), s2, (s2_len + 1));
-	if(*s1)
-		ft_free_str((char**)&s1);
+	if (*s1)
+		ft_free_str((char **)&s1);
 	return (new_s);
 }
 

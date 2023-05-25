@@ -6,11 +6,22 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 12:47:20 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/24 22:08:25 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/25 16:49:19 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
+
+int	get_index(char	*str)
+{
+	int	index;
+
+	if (!strcmp(str, "here_doc"))
+		index = 4;
+	else
+		index = 3;
+	return (index);
+}
 
 void	pipe_read_and_write(int *fd, int *next_fd, char *cmd, char **envp)
 {
@@ -25,12 +36,14 @@ void	pipe_read_and_write(int *fd, int *next_fd, char *cmd, char **envp)
 	exec_cmd(stdout_copy, cmd, envp);
 }
 
-int	mltp_pipes(int	*fd, int argc, char	**argv, char	**envp, int index)
+void	mltp_pipes(int	*fd, int argc, char	**argv, char	**envp)
 {
 	int	pid;
 	int	next_fd[2];
+	int	index;
 
-	while(index <= argc - 3)
+	index = get_index(argv[1]);
+	while (index <= argc - 3)
 	{
 		close(fd[1]);
 		if (pipe(next_fd) == -1)
@@ -47,8 +60,6 @@ int	mltp_pipes(int	*fd, int argc, char	**argv, char	**envp, int index)
 		close(next_fd[0]);
 		index++;
 	}
-	pid = last_fork(fd, argc, argv, envp);
-	return(pid);
 }
 
 int	ft_bonus_pipex(int argc, char	**argv, char	**envp)
@@ -56,16 +67,16 @@ int	ft_bonus_pipex(int argc, char	**argv, char	**envp)
 	int		pid_first;
 	int		pid_last;
 	int		fd[2];
-	int		index_seccmd;
+	int		index;
 
 	if (pipe(fd) == -1)
 		error_management(NULL, 0, errno);
-	pid_first = first_fork(fd, argc, argv, envp, &index_seccmd);
+	pid_first = first_fork(fd, argc, argv, envp);
 	waitpid(pid_first, NULL, WNOHANG);
-	if (argc - (index_seccmd + 1) == 1)
-		pid_last = last_fork(fd, argc, argv, envp);
-	else
-		pid_last = mltp_pipes(fd, argc, argv, envp, index_seccmd);
+	index = get_index(argv[1]);
+	if (argc - (index + 1) > 1)
+		mltp_pipes(fd, argc, argv, envp);
+	pid_last = last_fork(fd, argc, argv, envp);
 	close(fd[0]);
 	close(fd[1]);
 	return (pid_last);
@@ -83,6 +94,5 @@ int	main(int argc, char **argv, char **envp)
 	}
 	pid2 = ft_bonus_pipex(argc, argv, envp);
 	waitpid(pid2, &wstatus, 0);
-	//ft_printf("%d", WEXITSTATUS(wstatus));
 	return (WEXITSTATUS(wstatus));
 }

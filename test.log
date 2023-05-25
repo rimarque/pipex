@@ -36,8 +36,8 @@ valgrind ./bonus here_doc END cat "grep hello" "grep rita" "kjdhaksjdh" "grep 1"
 valgrind ./bonus here_doc END "wc -k" "grep hello" "grep rita" "grep salt" "grep 1" "klfksjdfhksj" out
 fiz igual sem here_doc
 
-outros caminhos, dev random ->resolvido
+outros caminhos, dev random -> OK
 
-Passar norminette
-Passar pipex tester
+Norminette - OK
+Pipex tester - Ok
 
