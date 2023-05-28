@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 12:47:20 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/25 16:49:19 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/28 14:35:46 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	pipe_read_and_write(int *fd, int *next_fd, char *cmd, char **envp)
 	exec_cmd(stdout_copy, cmd, envp);
 }
 
-void	mltp_pipes(int	*fd, int argc, char	**argv, char	**envp)
+int	mltp_pipes(int	*fd, int argc, char	**argv, char	**envp)
 {
 	int	pid;
 	int	next_fd[2];
@@ -60,26 +60,27 @@ void	mltp_pipes(int	*fd, int argc, char	**argv, char	**envp)
 		close(next_fd[0]);
 		index++;
 	}
+	return (pid);
 }
 
 int	ft_bonus_pipex(int argc, char	**argv, char	**envp)
 {
-	int		pid_first;
-	int		pid_last;
+	int		pid;
 	int		fd[2];
 	int		index;
 
 	if (pipe(fd) == -1)
 		error_management(NULL, 0, errno);
-	pid_first = first_fork(fd, argc, argv, envp);
-	waitpid(pid_first, NULL, WNOHANG);
+	pid = first_fork(fd, argc, argv, envp);
+	waitpid(pid, NULL, WNOHANG);
 	index = get_index(argv[1]);
 	if (argc - (index + 1) > 1)
-		mltp_pipes(fd, argc, argv, envp);
-	pid_last = last_fork(fd, argc, argv, envp);
+		pid = mltp_pipes(fd, argc, argv, envp);
+	waitpid(pid, NULL, WNOHANG);
+	pid = last_fork(fd, argc, argv, envp);
 	close(fd[0]);
 	close(fd[1]);
-	return (pid_last);
+	return (pid);
 }
 
 int	main(int argc, char **argv, char **envp)

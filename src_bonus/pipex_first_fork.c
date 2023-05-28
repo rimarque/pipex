@@ -6,7 +6,7 @@
 /*   By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 13:08:56 by rimarque          #+#    #+#             */
-/*   Updated: 2023/05/25 16:50:25 by rimarque         ###   ########.fr       */
+/*   Updated: 2023/05/28 14:41:13 by rimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int	redirect(char *lim, int n)
 	buff = read_stdin(lim, n);
 	write(heredoc_fd[1], buff, strlen(buff));
 	close(heredoc_fd[1]);
-	ft_free_str(&buff);
+	if (*buff)
+		ft_free_str(&buff);
 	return (heredoc_fd[0]);
 }
 
