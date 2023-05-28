@@ -6,7 +6,7 @@
 #    By: rimarque <rimarque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 12:57:07 by rimarque          #+#    #+#              #
-#    Updated: 2023/05/24 19:25:36 by rimarque         ###   ########.fr        #
+#    Updated: 2023/05/28 14:45:25 by rimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ clean:
 fclean: clean
 	$(MAKE) fclean --no-print-directory -C ./libftx
 	rm -rf $(NAME)
-	rm -rf checker
+	rm -rf bonus
 	echo "All files CLEAN"
 
 re: fclean all
