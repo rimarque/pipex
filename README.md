@@ -1,7 +1,7 @@
 # **Pipex**
 
 ## :speech_balloon: **About**
-This project's mandatory part consists in the implementation of one pipe, using processes, executing the commands given as arguments, and supporting overwrite redirections, while the bonus part involves the execution of multiple pipes and adds the implementation of append redirections.
+The mandatory part of this project involves using processes to implement a single pipe for chaining the commands provided as arguments, while also supporting overwrite redirections. The bonus part includes the execution of multiple pipes and implementation of append redirections.
 
 ## 🙋‍♀️ **Authorship**
 - [Rita Marques](https://github.com/rimarque)
@@ -16,8 +16,8 @@ git clone git@github.com:rimarque/FDF.git
 
 ## 💎 **Features**
 ```
-- Executes the commands given as arguments, with the use of execve() function
-- Executes a pipe between the commands, with use of pipe() and fork() functions
+- Executes the commands given as arguments, with the use of execve() and fork() functions
+- Executes a pipe between the commands, with use of pipe()
 - Supports overwrite rederections:
   - redirects input from the file given as first argument
   - redirects output to the file given as last argument
