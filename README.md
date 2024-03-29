@@ -1,7 +1,7 @@
 # **Pipex**
 
 ## :speech_balloon: **About**
-This project's mandatory part consists in the implementation of one pipe and overwrite redirections, while the bonus part involves the support of multiple pipes and adds the implementation of append redirections.
+This project's mandatory part consists in the implementation of one pipe, using processes, executing the commands given as arguments, and supporting overwrite redirections, while the bonus part involves the execution of multiple pipes and adds the implementation of append redirections.
 
 ## 🙋‍♀️ **Authorship**
 - [Rita Marques](https://github.com/rimarque)
