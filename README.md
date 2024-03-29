@@ -2,6 +2,7 @@
 
 ## :speech_balloon: **About**
 Pipex is all about implementing pipes!
+
 The mandatory part of this project involves using processes to implement a single pipe for chaining the commands provided as arguments, while also supporting overwrite redirections. The bonus part includes the execution of multiple pipes and implementation of append redirections.
 
 ## 🙋‍♀️ **Authorship**
