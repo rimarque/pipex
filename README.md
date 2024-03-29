@@ -24,19 +24,12 @@ git clone git@github.com:rimarque/FDF.git
 - Supports accurate exit codes and error messages
 - Supports the use of one pair of single quotes per command
 ```
-
-<table align=center>
-	<tbody>
-		<tr>
-			<td><image src="img/single_quotes.png"></td>
-			<td><image src="img/mandatory.png"></td>
-		</tr>
-		<tr>
-			<td><image src="img/file_error.png"></td>
-			<td><image src="img/command_error.png"></td>
-		</tr>
-	</tbody>
-</table>
+</tbody>
+	<td><image src="img/single_quotes.png"></td>
+	<td><image src="img/mandatory.png"></td>
+	<td><image src="img/file_error.png"></td>
+	<td><image src="img/command_error.png"></td>
+</tbody>
 
 ## :link: **Compilation**
 To compile the program you should run `make`.
