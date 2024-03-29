@@ -16,39 +16,54 @@ git clone git@github.com:rimarque/FDF.git
 
 ## 💎 **Features**
 ```
-- Executes the commands given as arguments, with the use of execve() and fork() functions
-- Executes a pipe between the commands, with use of pipe()
+- Executes the commands provided as arguments usinge the execve() and fork() functions
+- Establishes a pipe between the commands using the pipe() function
 - Supports overwrite redirections:
-  - redirects input from the file given as first argument
-  - redirects output to the file given as last argument
+  - redirects input from the file specified as first argument
+  - redirects output to the file specified as last argument
+- Supports accurate exit codes and error messages
+- Supports the use of one pair of single quotes per command
 ```
+
+<table align=center>
+	<tbody>
+		<tr>
+			<td><image src="img/mandatory.png"></td>
+			<td><image src="img/single_quotes.png"></td>
+		</tr>
+		<tr>
+			<td><image src="img/file_error.png"></td>
+			<td><image src="img/command_error.png"></td>
+		</tr>
+	</tbody>
+</table>
 
 ## :link: **Compilation**
 To compile the program you should run `make`.
 This rule will generate an executable file named `pipex`.
-
-## 🪗 Execution
 
 To launch the executable you should follow this syntax:
 
 ```sh
 $ ./pipex infile cmd1 cmd2 outfile
 ```
-<td><image src="img/mandatory.png"></td>
 
 # Bonus Part
 
 ## 💎 **Features**
 ```
 - Supports multiple pipes, enabling users to chain multiple commands together
-- Supports overwrite and append rederections (including heredoc)
+- Supports append redirections (including here document)
 ```
+
+<tbody>
+			<td><image src="img/bonus_overwrite.png"></td>
+			<td><image src="img/bonus_append.png"></td>
+</tbody>
 
 ## :link: **Compilation**
 To compile the program you should run `make bonus`.
 This rule will generate an executable file named `bonus`.
-
-## 🪗 Execution
 
 To launch the executable you should follow this syntax:
 
@@ -57,11 +72,9 @@ Executes overwrite redirections:
 ```sh
 $ ./bonus infile cmd1 cmd2 cmd3 ... cmdn outfile
 ```
-<td><image src="img/bonus_overwrite.png"></td>
 
 Executes append redirections:
 
 ```sh
 $ ./bonus here_doc LIMITER cmd1 cmd2 cmd3 ... cmdn outfile
 ```
-<td><image src="img/bonus_append.png"></td>
