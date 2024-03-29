@@ -28,8 +28,8 @@ git clone git@github.com:rimarque/FDF.git
 <table align=center>
 	<tbody>
 		<tr>
-			<td><image src="img/mandatory.png"></td>
 			<td><image src="img/single_quotes.png"></td>
+			<td><image src="img/mandatory.png"></td>
 		</tr>
 		<tr>
 			<td><image src="img/file_error.png"></td>
