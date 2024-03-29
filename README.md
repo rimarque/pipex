@@ -27,7 +27,7 @@ git clone git@github.com:rimarque/FDF.git
 To compile the program you should run `make`.
 This rule will generate an executable file named `pipex`.
 
-## :gun: Execution
+## 🪗 Execution
 
 To launch the executable you should follow this syntax:
 
@@ -48,7 +48,7 @@ $ ./pipex infile cmd1 cmd2 outfile
 To compile the program you should run `make bonus`.
 This rule will generate an executable file named `bonus`.
 
-## 🔫 Execution
+## 🪗 Execution
 
 To launch the executable you should follow this syntax:
 
