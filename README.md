@@ -27,8 +27,8 @@ git clone git@github.com:rimarque/FDF.git
 - Supports the use of one pair of single quotes per command
 ```
 </tbody>
-	<td><image src="img/single_quotes.png"></td>
 	<td><image src="img/mandatory.png"></td>
+	<td><image src="img/single_quotes.png"></td>	
 	<td><image src="img/file_error.png"></td>
 	<td><image src="img/command_error.png"></td>
 </tbody>
