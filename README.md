@@ -18,7 +18,7 @@ git clone git@github.com:rimarque/FDF.git
 ```
 - Executes the commands given as arguments, with the use of execve() and fork() functions
 - Executes a pipe between the commands, with use of pipe()
-- Supports overwrite rederections:
+- Supports overwrite redirections:
   - redirects input from the file given as first argument
   - redirects output to the file given as last argument
 ```
