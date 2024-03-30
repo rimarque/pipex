@@ -11,7 +11,7 @@ The mandatory part of this project involves using processes to implement a singl
 ## :inbox_tray: **Cloning the repository**
 
 ```shell
-git clone git@github.com:rimarque/FDF.git 
+git clone git@github.com:rimarque/pipex.git 
 ```
 
 # Mandatory Part
